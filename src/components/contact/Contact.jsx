@@ -42,7 +42,7 @@ const Contact = () => {
                         <h3 className="contact__card-title">Instagram</h3>
                         <span className="contact__card-data">asim_sidd_</span>
 
-                        <a href="" className="contact__button">Write me{" "}
+                        <a href="https://www.instagram.com/asim_sidd_/" className="contact__button">Connect{" "}
                          <i className="bx bx-right-arrow-alt contact__button-icon"></i></a>
                     </div>
 
@@ -52,7 +52,7 @@ const Contact = () => {
                         <h3 className="contact__card-title">LinkedIn</h3>
                         <span className="contact__card-data">AsimSidd</span>
 
-                        <a href="" className="contact__button">Write me{" "}
+                        <a href="https://www.linkedin.com/in/asim-siddiqui-a71731229/" className="contact__button">Connect{" "}
                          <i className="bx bx-right-arrow-alt contact__button-icon"></i></a>
                     </div>
                     <div className="contact__card">
@@ -61,7 +61,7 @@ const Contact = () => {
                         <h3 className="contact__card-title">Github</h3>
                         <span className="contact__card-data">AsimSidd02</span>
 
-                        <a href="" className="contact__button">Write me{" "}
+                        <a href="https://github.com/Asim-Sidd02" className="contact__button">View{" "}
                          <i className="bx bx-right-arrow-alt contact__button-icon"></i></a>
                     </div>
                 </div>
