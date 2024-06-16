@@ -38,3 +38,11 @@ To run this project locally, follow these steps:
     Open [http://localhost:3000](http://localhost:3000) in your browser
 4. **Live Demo**:
     Check out the live demo of my portfolio [here](https://asimsidd.vercel.app/)
+
+## Author
+
+- **Asim Siddiqui**
+- **Contact Information**
+  - Email: asimsiddiqui8181@gmail.com
+  - LinkedIn: [Asim Siddiqui](https://www.linkedin.com/in/asim-siddiqui-a71731229/)
+  - Portfolio: [Asim Sidd](https://asimsidd.vercel.app/)
