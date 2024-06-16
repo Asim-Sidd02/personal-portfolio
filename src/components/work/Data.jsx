@@ -8,72 +8,97 @@ import Work7 from "../../assets/work7.png";
 import Work8 from "../../assets/work8.png";
 import Work9 from "../../assets/work9.png";
 import Work10 from "../../assets/work10.png";
+import Work12 from "../../assets/Work12.png"
 
 
 
 
 
 export const projectsData = [
-    {
-        id: 1,
-        image: Work1,
-        title: "Web Repository Viewer",
-        category: "web",
-      },
-      {
-        id: 2,
-        image: Work2,
-        title: "Metrial Management App",
-        category: "app",
-      },
-      {
-        id: 3,
-        image: Work3,
-        title: "Magic Mirror",
-        category: "IoT",
-      },
+  {
+    id: 1,
+    image: Work12,
+    title: "RiskPredicitionSystem",
+    category: "IoT/ML",
+    url: "https://github.com/Asim-Sidd02/RiskPredectionSystem",
+  },
+   
+     
       {
         id: 4,
-        image: Work4,
-        title: "Mental Health Chatbot",
-        category: "web",
+        image: Work3,
+        title: "Magic Mirror",
+        category: "IoT/ML",
+        url: "https://github.com/Asim-Sidd02/MagicMirror/tree/main/MagicMirror",
       },
       {
         id: 5,
-        image: Work5,
-        title: "AI Learning App",
-        category: "app",
+        image: Work4,
+        title: "Mental Health Chatbot",
+        category: "web",
+        url: "https://github.com/Asim-Sidd02/HackForHealth",
       },
       {
         id: 6,
-        image: Work6,
-        title: "Speech To Text Convertor",
+        image: Work5,
+        title: "Plan And Scheduling App",
         category: "app",
+        url: "https://github.com/Asim-Sidd02/Plan-Scheduling-App",
       },
+     
       {
-        id: 7,
+        id: 8,
         image: Work7,
         title: "Task Management System",
         category: "app",
-      },
-      {
-        id: 8,
-        image: Work8,
-        title: "Tic Tac Toe",
-        category: "app",
-      },
-      {
-        id: 9,
-        image: Work9,
-        title: "Customizable Chatbot",
-        category: "IoT",
+        url: "https://github.com/Asim-Sidd02/TaskManagementSystem",
       },
       {
         id: 10,
+        image: Work9,
+        title: "Customizable Chatbot",
+        category: "IoT/ML",
+        url: "https://github.com/Asim-Sidd02/KgrVirtualAssistant",
+      },
+      {
+        id: 9,
+        image: Work8,
+        title: "Tic Tac Toe",
+        category: "app",
+        url: "https://github.com/Asim-Sidd02/TicTacToe--Using-Flutter",
+      },
+      {
+        id: 2,
+        image: Work1,
+        title: "Web Repository Viewer",
+        category: "web",
+        url: "https://github.com/Asim-Sidd02/GitHub-Repository-Finder-By-Username",
+      },
+     
+     
+      {
+        id: 7,
+        image: Work6,
+        title: "Speech To Text Convertor",
+        category: "app",
+        url: "https://github.com/Asim-Sidd02/SpeechToText",
+      },
+      {
+        id: 3,
+        image: Work2,
+        title: "Metrial Management App",
+        category: "app",
+        url: "https://github.com/C0debl00ded/Material_Management_App",
+      },
+      {
+        id: 11,
         image: Work10,
         title: "Web Chat App",
         category: "web",
+        url: "https://github.com/Asim-Sidd02/WebChatApp",
       },
+     
+   
 
 ]
 
@@ -88,6 +113,6 @@ export const projectsNav = [
         name: 'app',
     },
     {
-        name: 'IoT',
+        name: 'IoT/ML',
     },
 ];
