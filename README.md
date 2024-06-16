@@ -24,8 +24,8 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/YourUsername/portfolio.git
-   cd portfolio
+   git clone https://github.com/Asim-Sidd02/personal-portfolio.git
+   cd personal-portfolio
     ```
 2. **Install The Packages**:
     ```sh
