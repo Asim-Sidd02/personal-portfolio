@@ -27,7 +27,12 @@ To run this project locally, follow these steps:
    git clone https://github.com/YourUsername/portfolio.git
    cd portfolio
     ```
-1. **Install The Packages**:
+2. **Install The Packages**:
     ```sh
     npm install
     ```
+3. **Start The Development Server**:
+    ```sh
+    npm start
+    ```
+    Open [http://localhost:3000](http://localhost:3000) in your browser
