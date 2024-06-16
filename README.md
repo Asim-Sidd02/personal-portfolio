@@ -26,3 +26,8 @@ To run this project locally, follow these steps:
    ```sh
    git clone https://github.com/YourUsername/portfolio.git
    cd portfolio
+    '''
+1. **Install The Packages**:
+    '''sh
+    npm install
+    '''
