@@ -9,12 +9,28 @@ import Work8 from "../../assets/work8.png";
 import Work9 from "../../assets/work9.png";
 import Work10 from "../../assets/work10.png";
 import Work12 from "../../assets/Work12.png"
-
+import Work13 from "../../assets/work14.jpg"
+import Work14 from "../../assets/work13.jpg"
 
 
 
 
 export const projectsData = [
+
+  {
+    id: 1,
+    image: Work13,
+    title: "Spedster(Expense Tracking App)",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/Spendster",
+  },
+  {
+    id: 2,
+    image: Work14,
+    title: "Weather App",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/Weather-App",
+  },
   {
     id: 1,
     image: Work12,
@@ -50,7 +66,7 @@ export const projectsData = [
         id: 8,
         image: Work7,
         title: "Task Management System",
-        category: "app",
+        category: "web",
         url: "https://github.com/Asim-Sidd02/TaskManagementSystem",
       },
       {
