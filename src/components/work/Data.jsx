@@ -32,7 +32,7 @@ export const projectsData = [
     url: "https://github.com/Asim-Sidd02/Weather-App",
   },
   {
-    id: 1,
+    id: 3,
     image: Work12,
     title: "RiskPredicitionSystem",
     category: "IoT/ML",
@@ -63,14 +63,14 @@ export const projectsData = [
       },
      
       {
-        id: 8,
+        id: 7,
         image: Work7,
         title: "Task Management System",
         category: "web",
         url: "https://github.com/Asim-Sidd02/TaskManagementSystem",
       },
       {
-        id: 10,
+        id: 8,
         image: Work9,
         title: "Customizable Chatbot",
         category: "IoT/ML",
@@ -84,7 +84,7 @@ export const projectsData = [
         url: "https://github.com/Asim-Sidd02/TicTacToe--Using-Flutter",
       },
       {
-        id: 2,
+        id: 10,
         image: Work1,
         title: "Web Repository Viewer",
         category: "web",
@@ -93,21 +93,21 @@ export const projectsData = [
      
      
       {
-        id: 7,
+        id: 11,
         image: Work6,
         title: "Speech To Text Convertor",
         category: "app",
         url: "https://github.com/Asim-Sidd02/SpeechToText",
       },
       {
-        id: 3,
+        id: 12,
         image: Work2,
         title: "Metrial Management App",
         category: "app",
         url: "https://github.com/C0debl00ded/Material_Management_App",
       },
       {
-        id: 11,
+        id: 13,
         image: Work10,
         title: "Web Chat App",
         category: "web",
