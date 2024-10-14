@@ -11,18 +11,26 @@ import Work10 from "../../assets/work10.png";
 import Work12 from "../../assets/Work12.png"
 import Work13 from "../../assets/work14.jpg"
 import Work14 from "../../assets/work13.jpg"
+import Work15 from "../../assets/wave.png"
 
 
 
 
 export const projectsData = [
+  {
+    id: 0,
+    image: Work15,
+    title: "Wave(A music App)",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/WaveMusic",
+  },
 
   {
     id: 1,
-    image: Work13,
-    title: "Spedster(Expense Tracking App)",
-    category: "app",
-    url: "https://github.com/Asim-Sidd02/Spendster",
+    image: Work12,
+    title: "RiskPredicitionSystem",
+    category: "IoT/ML",
+    url: "https://github.com/Asim-Sidd02/RiskPredectionSystem",
   },
   {
     id: 2,
@@ -31,15 +39,15 @@ export const projectsData = [
     category: "app",
     url: "https://github.com/Asim-Sidd02/Weather-App",
   },
+ 
+   
   {
     id: 3,
-    image: Work12,
-    title: "RiskPredicitionSystem",
-    category: "IoT/ML",
-    url: "https://github.com/Asim-Sidd02/RiskPredectionSystem",
+    image: Work13,
+    title: "Spedster(Expense Tracking App)",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/Spendster",
   },
-   
-     
       {
         id: 4,
         image: Work3,
