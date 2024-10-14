@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: var(--body-color);
+    background-color: var(--container-color);
 
 }
 
@@ -54,6 +54,104 @@
     color: var(--title-color-dark);
 }
 
+
+[data-theme="dark"] {
+    /* Dark Theme Variables */
+    --container-color: #1e1e1e;
+    --body-color: #1e1e1e;
+    --title-color: #f0f0f0;
+    --title-color-dark: #e0e0e0;
+    --text-color: #b0b0b0;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--container-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    background-color: var(--container-color);
+}
+
+/* Nav Links */
+.nav__link {
+    color: var(--title-color);
+}
+
+.nav__link:hover,
+.active-link {
+    color: var(--title-color-dark);
+}
+
+/* Theme Toggle Switch Styles */
+.theme-toggle-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+    height: 24px;
+    margin-left: 1rem;
+}
+
+.theme-toggle-slider input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    background-color: var(--text-color);
+    transition: 0.4s;
+    border-radius: 34px;
+    cursor: pointer;
+}
+
+.slider:before {
+    position: absolute;
+    content: "Light";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--container-color);
+    transition: 0.4s;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+}
+
+input:checked + .slider {
+    background-color: var(--title-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "Dark";
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .header {
+        top: initial;
+        bottom: 0;
+    }
+
+    .nav__menu {
+        background-color: var(--container-color);
+    }
+}
+
+
+
 /*=============== BREAKPOINTS ===============*/
 
 /* For medium devices */
@@ -71,7 +169,7 @@
         bottom: -100%;
         left: 0;
         width: 100%;
-        background-color: var(--body-color);
+        background-color: var(--container-color);
         padding: 2rem 1.5rem, 4rem;
         box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
         border-radius: 1.5rem 1.5rem 0 0;
@@ -108,9 +206,7 @@
     }
 
 
-    .nav__close:hover{
-        color: var(--title-color-dark);
-    }
+  
 
     .nav__toggle{
         font-size: 1.1rem;
