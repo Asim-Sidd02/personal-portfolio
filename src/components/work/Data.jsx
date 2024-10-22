@@ -44,7 +44,7 @@ export const projectsData = [
   {
     id: 3,
     image: Work13,
-    title: "Spedster(Expense Tracking App)",
+    title: "Spendster(Expense Tracking App)",
     category: "app",
     url: "https://github.com/Asim-Sidd02/Spendster",
   },
