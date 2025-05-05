@@ -117,6 +117,16 @@ img {
 .section {
   padding: 6rem 0 2rem;
 }
+.hyperspeed-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Sends it behind the rest of the content */
+  overflow: hidden;
+}
+
 
 .section__title {
   font-size: var(--h1-font-size);

@@ -12,6 +12,7 @@ import Work12 from "../../assets/Work12.png"
 import Work13 from "../../assets/work14.jpg"
 import Work14 from "../../assets/work13.jpg"
 import Work15 from "../../assets/wave.png"
+import Work16 from "../../assets/pop.jpg"
 
 
 
@@ -31,6 +32,13 @@ export const projectsData = [
     title: "RiskPredicitionSystem",
     category: "IoT/ML",
     url: "https://github.com/Asim-Sidd02/RiskPredectionSystem",
+  },
+  {
+    id: 0,
+    image: Work16,
+    title: "Popcorn Pal(A movie app UI)",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/PopcornPal",
   },
   {
     id: 2,

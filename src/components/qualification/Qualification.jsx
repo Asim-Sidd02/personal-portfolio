@@ -93,14 +93,54 @@ const Qualification = () => {
 
             <div className={toggleState === 2 ? "qualification__content qualification__content-active" :"qualification__content "}
             onClick={() => toggleTab(2)}
+        
             >
+                 
+                 <div className="qualification__data">
+                    
+                    <div>
+                     <h3 className="qualification__title">Full Stack Developer</h3>
+                     <span className="qualification__subtitle">QuadB Tech </span>
+                     <div className="qualification__calender">
+                         <i className="uil uil-claendar-alt"></i>2025- Present
+                     </div>
+                     </div> 
+                     <div>
+                         <span className="qualification__rounder"></span>
+                         <span className="qualification__line"></span>
+                     </div>
+ 
+                 </div>
+                   <div className="qualification__data">
+                    <div></div>
+
+                    <div>
+                        <span className="qualification__rounder"></span>
+                        <span className="qualification__line"></span>
+                    </div>
+
+
+
+                   <div>
+                    <h3 className="qualification__title">Full Stack Developer</h3>
+                    <span className="qualification__subtitle">TechWebLabs</span>
+                    <div className="qualification__calender">
+                        <i className="uil uil-claendar-alt"></i>2024(2 Months)
+                    </div>
+                    </div> 
+                  
+
+                </div>
+                
+                
                 
                 <div className="qualification__data">
+                    
                    <div>
                     <h3 className="qualification__title">Flutter Developer</h3>
                     <span className="qualification__subtitle">Built-In Tech </span>
                     <div className="qualification__calender">
-                        <i className="uil uil-claendar-alt"></i>2022
+                        <i className="uil uil-claendar-alt"></i>2022(3 Months)
                     </div>
                     </div> 
                     <div>
@@ -109,6 +149,7 @@ const Qualification = () => {
                     </div>
 
                 </div>
+                
 
                 <div className="qualification__data">
                     <div></div>
@@ -124,7 +165,7 @@ const Qualification = () => {
                     <h3 className="qualification__title">Product Developer</h3>
                     <span className="qualification__subtitle">KASE-KGRCET</span>
                     <div className="qualification__calender">
-                        <i className="uil uil-claendar-alt"></i>2022 - Present
+                        <i className="uil uil-claendar-alt"></i>2022 - 2025
                     </div>
                     </div> 
                   
@@ -137,7 +178,7 @@ const Qualification = () => {
                     <h3 className="qualification__title">Web Development</h3>
                     <span className="qualification__subtitle">KGRCET</span>
                     <div className="qualification__calender">
-                        <i className="uil uil-claendar-alt"></i>2021 - Present
+                        <i className="uil uil-claendar-alt"></i>2021 - 2025
                     </div>
                     </div> 
                     <div>
