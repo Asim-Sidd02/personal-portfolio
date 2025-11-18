@@ -2,6 +2,9 @@
   "name": "asimsidd",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@emotion/react": "^11.13.3",
@@ -30,12 +33,6 @@
       "react-app/jest"
     ]
   },
-  {
-  "engines": {
-    "node": "25.2.1"
-  }
-}
-
   "browserslist": {
     "production": [
       ">0.2%",
