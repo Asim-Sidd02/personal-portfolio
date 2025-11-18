@@ -13,6 +13,7 @@ import Work13 from "../../assets/work14.jpg"
 import Work14 from "../../assets/work13.jpg"
 import Work15 from "../../assets/wave.png"
 import Work16 from "../../assets/pop.jpg"
+import Work17 from "../../assets/Work17.jpeg"
 
 
 
@@ -46,6 +47,13 @@ export const projectsData = [
     title: "Weather App",
     category: "app",
     url: "https://github.com/Asim-Sidd02/Weather-App",
+  },
+   {
+    id: 1,
+    image: Work17,
+    title: "TaskMate",
+    category: "app",
+    url: "https://github.com/Asim-Sidd02/TaskMate",
   },
  
    
