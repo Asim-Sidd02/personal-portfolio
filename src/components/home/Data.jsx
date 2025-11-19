@@ -56,7 +56,7 @@ const Data = () => {
         
         </h1>
 
-        <h3 className="home__subtitle">Front End Developer</h3>
+        <h3 className="home__subtitle">Software Developer</h3>
         <p className="home__description">I'm a proficient front-end developer based in Hyderabad, specializing in Web and App development. With expertise in crafting dynamic user interfaces and a keen eye for detail.
         </p>
         <a href="#contact" className="button button--flex">
