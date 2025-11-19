@@ -2,9 +2,6 @@
   "name": "asimsidd",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "22.x"
-  },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@emotion/react": "^11.13.3",
@@ -14,6 +11,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ogl": "^1.0.11",
     "postprocessing": "^6.37.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
