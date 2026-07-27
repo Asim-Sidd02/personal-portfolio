@@ -106,17 +106,93 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+button:hover {
+  transform: translateY(-1px);
 }
 
 img {
   max-width: 100%;
   height: auto;
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+img:hover {
+  transform: scale(1.01);
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+:root {
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.35s ease;
+  --transition-slow: 0.5s ease;
+}
+
+* {
+  transition: color var(--transition-medium), background-color var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
 .section {
   padding: 6rem 0 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
+
+.section:nth-of-type(2) {
+  animation-delay: 0.12s;
+}
+
+.section:nth-of-type(3) {
+  animation-delay: 0.18s;
+}
+
+.section:nth-of-type(4) {
+  animation-delay: 0.24s;
+}
+
+.section:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+
+.section:nth-of-type(6) {
+  animation-delay: 0.36s;
+}
+
+.home__container,
+.about__container,
+.skills__container,
+.services__container,
+.qualification__container,
+.work__container,
+.office__container,
+.contact__container {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeInUp 0.85s ease forwards;
+}
+
+.home__container { animation-delay: 0.18s; }
+.about__container { animation-delay: 0.22s; }
+.skills__container { animation-delay: 0.26s; }
+.services__container { animation-delay: 0.3s; }
+.qualification__container { animation-delay: 0.34s; }
+.work__container { animation-delay: 0.38s; }
+.office__container { animation-delay: 0.42s; }
+.contact__container { animation-delay: 0.46s; }
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.9s ease forwards;
+  animation-delay: 0.18s;
+}
+
 .hyperspeed-wrapper {
   position: fixed;
   top: 0;
@@ -131,6 +207,10 @@ img {
 .section__title {
   font-size: var(--h1-font-size);
   color: var(--title-color);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp 0.9s ease forwards;
+  animation-delay: 0.15s;
 }
 
 .section__subtitle {
@@ -164,10 +244,19 @@ img {
   padding: 1.25rem 2rem;
   border-radius: 1rem;
   font-weight: var(--font-medium);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .button:hover {
   background-color: var(--title-color-dark);
+  transform: translateY(-3px);
+}
+
+.button--flex {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button__icon {
@@ -209,6 +298,29 @@ img {
 
   .section__subtitle {
     margin-bottom: var(--mb-3);
+  }
+
+  .section,
+  .work__card,
+  .office__card,
+  .qualification__data,
+  .skills__card,
+  .services__card,
+  .contact__container,
+  .about__container {
+    animation-duration: 0.75s;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

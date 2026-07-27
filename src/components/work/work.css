@@ -1,55 +1,90 @@
 .work__filters{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    column-gap: 0.75rem;
+    gap: 0.75rem;
     margin-bottom: var(--mb-2);
+    padding: 0.5rem 0.25rem;
 }
 
 .work__item{
     cursor: pointer;
     color: var(--title-color);
-    padding: 0.25rem 0.75rem;
+    padding: 0.6rem 1rem;
     font-weight: var(--font-medium);
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     text-transform: capitalize;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.25s ease;
 }
 
 .work__item:hover{
     background-color: var(--title-color);
     color: var(--container-color);
+    transform: translateY(-2px);
 }
 
 .work__container{
-    grid-template-columns: repeat(2, max-content);
-    gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
     justify-content: center;
+    align-items: stretch;
 }
 
 .work__card{
+    width: 100%;
     background-color: var(--container-color);
-    border: 2px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 1.25rem;
-    border-radius: 1rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.work__card:hover{
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.22);
 }
 
 .work__img{
-    width: 295px;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
     border-radius: 1rem;
     margin-bottom: var(--mb-1);
 }
 
 .work__title{
-    font-size: var(--normal-font-size);
+    font-size: 1.05rem;
     font-weight: var(--font-medium);
-    margin-bottom: var(--mb-0-5);
+    margin-bottom: 0.75rem;
 }
 
 .work__button{
-    color: var(--text-color);
-    font-size: var(--small-font-size);
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    column-gap: 0.25rem;
+    color: var(--title-color);
+    background-color: rgba(255,255,255,0.08);
+    padding: 0.8rem 1rem;
+    border-radius: 0.85rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: var(--small-font-size);
+    gap: 0.35rem;
+    margin-top: auto;
+}
+
+.work__button:hover{
+    background-color: var(--title-color);
+    color: var(--container-color);
+    transform: translateX(0.15rem);
 }
 
 .work__button-icon{
@@ -58,14 +93,92 @@
 }
 
 .work__button:hover .work__button-icon{
-    transform:  translateX(0.25rem);
+    transform: translateX(0.25rem);
 }
-
 
 /*active work*/
 .active-work{
     background-color: var(--title-color);
     color: var(--container-color);
+}
+
+.office-projects{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.office__section-title{
+    font-size: var(--h2-font-size);
+    margin-bottom: 0.25rem;
+}
+
+.office__section-subtitle{
+    display: block;
+    color: var(--text-color-light);
+    margin-bottom: var(--mb-2);
+}
+
+.office__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.office__card{
+    background-color: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    text-align: left;
+    max-width: 360px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.office__card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.office__name{
+    font-size: 1.1rem;
+    margin-bottom: 0.65rem;
+}
+
+.office__description{
+    color: var(--text-color-light);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.office__link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    color: var(--container-color);
+    background-color: var(--title-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.85rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.office__link:hover{
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+.work__card,
+.office__card,
+.services__content,
+.about__img,
+.skills__content,
+.contact__card,
+.work__filters,
+.office__link,
+.work__button{
+    will-change: transform, opacity;
 }
 
 /*=============== BREAKPOINTS ===============*/
