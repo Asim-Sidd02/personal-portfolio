@@ -138,27 +138,12 @@ img:hover {
   padding: 6rem 0 2rem;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
-.section:nth-of-type(2) {
-  animation-delay: 0.12s;
-}
-
-.section:nth-of-type(3) {
-  animation-delay: 0.18s;
-}
-
-.section:nth-of-type(4) {
-  animation-delay: 0.24s;
-}
-
-.section:nth-of-type(5) {
-  animation-delay: 0.3s;
-}
-
-.section:nth-of-type(6) {
-  animation-delay: 0.36s;
+.section.scroll-animate--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home__container,

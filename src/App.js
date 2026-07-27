@@ -11,6 +11,7 @@ import Qualification from './components/qualification/Qualification';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import Preloader from './components/loader/Preloader';
+import ScrollUp from './components/ScrollUp/ScrollUp';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
@@ -23,6 +24,27 @@ const App = () => {
     }, 3000);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    if (loading) return;
+
+    const sections = Array.from(document.querySelectorAll('.section'));
+
+    const revealSections = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('scroll-animate--visible');
+        }
+      });
+    };
+
+    revealSections();
+    window.addEventListener('scroll', revealSections, { passive: true });
+
+    return () => window.removeEventListener('scroll', revealSections);
+  }, [loading]);
 
   return (
     <>
@@ -77,6 +99,7 @@ const App = () => {
             <Work />
             <Contact />
           </main>
+          <ScrollUp />
         </div>
       )}
     </>
