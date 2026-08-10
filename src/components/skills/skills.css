@@ -1,5 +1,5 @@
 .skills__container{
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(2, 380px);
     column-gap: 3rem;
     justify-content: center;
 
@@ -8,15 +8,16 @@
 .skills__content{
     background-color: var(--container-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 2rem 4rem;
+    padding: 2.5rem 3rem;
     border: 1.25rem;
 }
 
 .skills__title{
-    font-size: var(--normal-font-size);
+    font-family: var(--heading-font);
+    font-size: var(--h2-font-size);
     font-weight: var(--font-medium);
     text-align: center;
-    margin-bottom: var(--mb-1-5);
+    margin-bottom: var(--mb-2);
 }
 
 .skills__box{
@@ -28,27 +29,30 @@
 .skills__group{
     display: grid;
     align-items: flex-start;
-    row-gap: 1rem;
+    row-gap: 1.5rem;
 }
 .skills__data{
     display: flex;
-    column-gap: 0.5rem;
+    align-items: center;
+    column-gap: 0.6rem;
 
 }
 
 .skills .bx-badge-check{
-    font-size: 1rem;
+    font-size: 1.35rem;
     color: var(--title-color);
 
 }
 .skills__name{
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-    line-height: 18px;
+    font-size: var(--h3-font-size);
+    font-family: var(--heading-font);
+    font-weight: var(--font-semi-bold);
+    line-height: 22px;
 }
 
 .skills__level{
-    font-size: var(--tiny-font-size);
+    font-size: var(--small-font-size);
+    color: var(--text-color);
 }
 
 /*=============== BREAKPOINTS ===============*/

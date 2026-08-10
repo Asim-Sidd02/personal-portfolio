@@ -25,15 +25,20 @@
 .home__social-icon{
     font-size: 1.25rem;
     color: var(--title-color);
+    transition: color .3s cubic-bezier(0.22, 1, 0.36, 1), transform .3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home__social-icon:hover{
-    color: var(--title-color-dark);
+    color: var(--accent-color, var(--title-color-dark));
+    transform: translateY(-3px);
 }
 
 
 .home__title{
+    font-family: var(--heading-font);
     font-size: var(--big-font-size);
+    font-weight: var(--font-medium);
+    letter-spacing: 0.5px;
     margin-bottom: var(--mb-0-25);
 }
 
@@ -47,9 +52,12 @@
 
 .home__subtitle{
     position: relative;
-    font-size: var(--h3-font-size);
+    font-family: var(--heading-font);
+    font-style: italic;
+    font-size: var(--h2-font-size);
     padding-left: 5.4rem;
-    font-weight: var(--mb-1);
+    font-weight: var(--font-medium);
+    color: var(--text-color);
 }
 
 
@@ -74,12 +82,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: inset 0 0 0 9px rgb(255 255 255 / 30%);
+    box-shadow: inset 0 0 0 9px rgb(255 255 255 / 30%), 0 25px 50px rgba(0, 0, 0, 0.2);
     order: 1;
     justify-self: center;
     width: 300px;
     height: 300px;
-    animation: profile__animate 8s ease-in-out infinite 1s;
+    animation: profile__animate 10s cubic-bezier(0.45, 0, 0.55, 1) infinite 1s;
 
 }
 

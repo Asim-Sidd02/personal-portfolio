@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import "./services.css"
 import SpotlightCard from "./SpotlightCard";
 
@@ -32,41 +33,44 @@ const Services = () => {
                         <i className="uil uil-arrow-right services__button-icon"></i>
                     </span>
 
-                    <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
+                    {createPortal(
+                        <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
+                            <div className="services__modal-content">
+                                <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
 
-                            <h3 className="services__modal-title">Front-End Developer</h3>
-                            <p className="services__modal-description">Crafting seamless web experiences with code and collaboration.</p>
+                                <h3 className="services__modal-title">Front-End Developer</h3>
+                                <p className="services__modal-description">Crafting seamless web experiences with code and collaboration.</p>
 
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Proficient in HTML, CSS, JavaScript</p>
-                                </li>
+                                <ul className="services__modal-services grid">
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Proficient in HTML, CSS, JavaScript</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Familiar with React, Angular, Vue.js</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Familiar with React, Angular, Vue.js</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Knowledgeable in Responsive Design</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Knowledgeable in Responsive Design</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Strong Problem-Solving Skills</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Strong Problem-Solving Skills</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Effective Communication</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Effective Communication</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>,
+                        document.body
+                    )}
                 </SpotlightCard>
 
                 {/* ----------- CARD 2 ----------- */}
@@ -86,41 +90,44 @@ const Services = () => {
                         <i className="uil uil-arrow-right services__button-icon"></i>
                     </span>
 
-                    <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
+                    {createPortal(
+                        <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
+                            <div className="services__modal-content">
+                                <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
 
-                            <h3 className="services__modal-title">Application Developer</h3>
-                            <p className="services__modal-description">Building innovative apps through code, design, and deployment.</p>
+                                <h3 className="services__modal-title">Application Developer</h3>
+                                <p className="services__modal-description">Building innovative apps through code, design, and deployment.</p>
 
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Proficient in Programming Languages</p>
-                                </li>
+                                <ul className="services__modal-services grid">
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Proficient in Programming Languages</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Versatile with Development Environments</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Versatile with Development Environments</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Skilled in UI/UX Principles</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Skilled in UI/UX Principles</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Experienced in Testing & Debugging</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Experienced in Testing & Debugging</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Knowledge of App Store Deployment</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Knowledge of App Store Deployment</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>,
+                        document.body
+                    )}
                 </SpotlightCard>
 
                 {/* ----------- CARD 3 ----------- */}
@@ -140,41 +147,44 @@ const Services = () => {
                         <i className="uil uil-arrow-right services__button-icon"></i>
                     </span>
 
-                    <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
+                    {createPortal(
+                        <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
+                            <div className="services__modal-content">
+                                <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
 
-                            <h3 className="services__modal-title">Coder</h3>
-                            <p className="services__modal-description">Transforming ideas into code with precision and innovation.</p>
+                                <h3 className="services__modal-title">Coder</h3>
+                                <p className="services__modal-description">Transforming ideas into code with precision and innovation.</p>
 
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Proficient in Multiple Languages</p>
-                                </li>
+                                <ul className="services__modal-services grid">
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Proficient in Multiple Languages</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Strong Problem-Solving</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Strong Problem-Solving</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Attention to Detail</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Attention to Detail</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Continuous Learning</p>
-                                </li>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Continuous Learning</p>
+                                    </li>
 
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Effective Communication</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Effective Communication</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>,
+                        document.body
+                    )}
                 </SpotlightCard>
 
             </div>

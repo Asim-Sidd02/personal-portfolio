@@ -11,6 +11,7 @@
 .work__item{
     cursor: pointer;
     color: var(--title-color);
+    font-size: var(--normal-font-size);
     padding: 0.6rem 1rem;
     font-weight: var(--font-medium);
     border-radius: 2rem;
@@ -62,8 +63,9 @@
 }
 
 .work__title{
-    font-size: 1.05rem;
-    font-weight: var(--font-medium);
+    font-family: var(--heading-font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-semi-bold);
     margin-bottom: 0.75rem;
 }
 
@@ -76,7 +78,8 @@
     padding: 0.8rem 1rem;
     border-radius: 0.85rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
     gap: 0.35rem;
     margin-top: auto;
 }
@@ -108,12 +111,15 @@
 }
 
 .office__section-title{
-    font-size: var(--h2-font-size);
+    font-family: var(--heading-font);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-medium);
     margin-bottom: 0.25rem;
 }
 
 .office__section-subtitle{
     display: block;
+    font-size: var(--small-font-size);
     color: var(--text-color-light);
     margin-bottom: var(--mb-2);
 }
@@ -142,11 +148,14 @@
 }
 
 .office__name{
-    font-size: 1.1rem;
+    font-family: var(--heading-font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-semi-bold);
     margin-bottom: 0.65rem;
 }
 
 .office__description{
+    font-size: var(--small-font-size);
     color: var(--text-color-light);
     line-height: 1.65;
     margin-bottom: 1rem;
