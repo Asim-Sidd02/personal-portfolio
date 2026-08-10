@@ -12,6 +12,7 @@ import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import Preloader from './components/loader/Preloader';
 import ScrollUp from './components/ScrollUp/ScrollUp';
+import CustomCursor from './components/cursor/CustomCursor';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
@@ -48,6 +49,7 @@ const App = () => {
 
   return (
     <>
+      <CustomCursor />
       {loading ? (
         <Preloader />
       ) : (

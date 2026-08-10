@@ -1,0 +1,74 @@
+.custom-cursor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-cursor-enabled .custom-cursor {
+    opacity: 1;
+}
+
+.custom-cursor-enabled,
+.custom-cursor-enabled a,
+.custom-cursor-enabled button {
+    cursor: none;
+}
+
+.cursor__dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    box-shadow: 0 0 12px rgba(201, 161, 94, 0.8);
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    will-change: transform;
+}
+
+.cursor__ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 25px rgba(201, 161, 94, 0.25);
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    transition: width .3s cubic-bezier(0.22, 1, 0.36, 1), height .3s cubic-bezier(0.22, 1, 0.36, 1), background-color .3s ease, border-color .3s ease, opacity .3s ease;
+    will-change: transform;
+}
+
+.cursor__ring--active {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(201, 161, 94, 0.08);
+    border-color: var(--title-color);
+}
+
+.cursor__ring--click {
+    width: 26px;
+    height: 26px;
+    background-color: rgba(201, 161, 94, 0.18);
+}
+
+.cursor__ring--hidden {
+    opacity: 0;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+
+    .custom-cursor-enabled,
+    .custom-cursor-enabled a,
+    .custom-cursor-enabled button {
+        cursor: auto;
+    }
+}

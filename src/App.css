@@ -9,12 +9,17 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --hue: 0;
   --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 95%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 100%);
-  --text-color: hsl(var(--hue), var(--sat), 75%);
-  --body-color: hsl(var(--hue), var(--sat), 6%);
-  --container-color: hsl(var(--hue), var(--sat), 10%);
-  --accent-color: #c9a15e;
+  --title-color: hsl(var(--hue), var(--sat), 12%);
+  --title-color-dark: hsl(var(--hue), var(--sat), 4%);
+  --text-color: hsl(var(--hue), var(--sat), 35%);
+  --text-color-light: hsl(var(--hue), var(--sat), 45%);
+  --body-color: hsl(var(--hue), var(--sat), 100%);
+  --container-color: hsl(var(--hue), var(--sat), 100%);
+  --accent-color: #a97c33;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-border-hover: rgba(0, 0, 0, 0.18);
+  --card-glass-bg: rgba(0, 0, 0, 0.03);
+  --button-glass-bg: rgba(0, 0, 0, 0.06);
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
