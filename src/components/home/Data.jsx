@@ -56,8 +56,8 @@ const Data = () => {
         
         </h1>
 
-        <h3 className="home__subtitle">Software Developer</h3>
-        <p className="home__description">I'm a proficient front-end developer based in Hyderabad, specializing in Web and App development. With expertise in crafting dynamic user interfaces and a keen eye for detail.
+        <h3 className="home__subtitle">Full-Stack Developer</h3>
+        <p className="home__description">I'm a full-stack developer based in Hyderabad, building Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I like owning the whole stack, from pixel-perfect interfaces to the APIs behind them.
         </p>
         <a href="#contact" className="button button--flex">
             Say Hello

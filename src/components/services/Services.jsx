@@ -22,9 +22,9 @@ const Services = () => {
                     spotlightColor="rgba(0, 229, 255, 0.2)"
                 >
                     <div>
-                        <i className="uil uil-web-grid services__icon"></i>
+                        <i className="uil uil-server-network services__icon"></i>
                         <h3 className="services__title">
-                            Front-End <br /> Developer
+                            Full-Stack <br /> Developer
                         </h3>
                     </div>
 
@@ -38,33 +38,33 @@ const Services = () => {
                             <div className="services__modal-content">
                                 <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
 
-                                <h3 className="services__modal-title">Front-End Developer</h3>
-                                <p className="services__modal-description">Crafting seamless web experiences with code and collaboration.</p>
+                                <h3 className="services__modal-title">Full-Stack Developer</h3>
+                                <p className="services__modal-description">Owning a product end-to-end, from the interface down to the database.</p>
 
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p className="services__modal-info">Proficient in HTML, CSS, JavaScript</p>
+                                        <p className="services__modal-info">Proficient in React, Vue.js & Laravel</p>
                                     </li>
 
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p className="services__modal-info">Familiar with React, Angular, Vue.js</p>
+                                        <p className="services__modal-info">Skilled in REST API design & integration</p>
                                     </li>
 
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p className="services__modal-info">Knowledgeable in Responsive Design</p>
+                                        <p className="services__modal-info">Experienced with MySQL, Redis & Firebase</p>
+                                    </li>
+
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Comfortable owning the entire stack</p>
                                     </li>
 
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
                                         <p className="services__modal-info">Strong Problem-Solving Skills</p>
-                                    </li>
-
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p className="services__modal-info">Effective Communication</p>
                                     </li>
                                 </ul>
                             </div>
@@ -179,6 +179,62 @@ const Services = () => {
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
                                         <p className="services__modal-info">Effective Communication</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>,
+                        document.body
+                    )}
+                </SpotlightCard>
+
+                <SpotlightCard
+                    className="services__content custom-spotlight-card"
+                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                >
+                    <div>
+                        <i className="uil uil-shopping-cart services__icon"></i>
+                        <h3 className="services__title">
+                            E-commerce <br /> Developer
+                        </h3>
+                    </div>
+
+                    <span className="services__button" onClick={() => toggleTab(4)}>
+                        View More
+                        <i className="uil uil-arrow-right services__button-icon"></i>
+                    </span>
+
+                    {createPortal(
+                        <div className={toggleState === 4 ? "services__modal active-modal" : "services__modal"}>
+                            <div className="services__modal-content">
+                                <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
+
+                                <h3 className="services__modal-title">E-commerce Developer</h3>
+                                <p className="services__modal-description">Building and customizing online stores that convert.</p>
+
+                                <ul className="services__modal-services grid">
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Shopify Liquid & Hydrogen theme development</p>
+                                    </li>
+
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Custom storefront UI & third-party integrations</p>
+                                    </li>
+
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Cart, checkout & site performance optimization</p>
+                                    </li>
+
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">Subscription & payment API integrations</p>
+                                    </li>
+
+                                    <li className="services__modal-service">
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <p className="services__modal-info">End-to-end store deployment</p>
                                     </li>
                                 </ul>
                             </div>

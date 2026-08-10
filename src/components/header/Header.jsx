@@ -62,6 +62,12 @@ const Header = () => {
     document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
 
+  useEffect(() => {
+    const handleExternalThemeChange = (event) => setTheme(event.detail);
+    window.addEventListener('asim-theme-change', handleExternalThemeChange);
+    return () => window.removeEventListener('asim-theme-change', handleExternalThemeChange);
+  }, []);
+
   // Save the theme preference to local storage and apply it
   const handleThemeChange = (event) => {
     const newTheme = event.target.checked ? 'dark' : 'light';

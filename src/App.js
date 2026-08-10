@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import About from './components/about/About';
+import GithubStats from './components/github/GithubStats';
 import Skills from './components/skills/Skills';
 import Services from './components/services/Services';
 import Qualification from './components/qualification/Qualification';
@@ -13,6 +14,7 @@ import Contact from './components/contact/Contact';
 import Preloader from './components/loader/Preloader';
 import ScrollUp from './components/ScrollUp/ScrollUp';
 import CustomCursor from './components/cursor/CustomCursor';
+import CommandPalette from './components/commandPalette/CommandPalette';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
@@ -95,6 +97,7 @@ const App = () => {
           <main className="main">
             <Home />
             <About />
+            <GithubStats />
             <Skills />
             <Services />
             <Qualification />
@@ -102,6 +105,7 @@ const App = () => {
             <Contact />
           </main>
           <ScrollUp />
+          <CommandPalette />
         </div>
       )}
     </>
