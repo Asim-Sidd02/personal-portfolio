@@ -51,7 +51,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ onNavigateFun }) => {
   const [toggle, setToggle] = useState(false);
   const [theme, setTheme] = useState('dark');
 
@@ -93,6 +93,7 @@ const Header = () => {
             <li className="nav__item"><a href="#services" className="nav__link" onClick={() => setToggle(false)}><i className="uil uil-briefcase-alt nav__icon"></i>Services</a></li>
             <li className="nav__item"><a href="#portfolio" className="nav__link" onClick={() => setToggle(false)}><i className="uil uil-scenery nav__icon"></i>Portfolio</a></li>
             <li className="nav__item"><a href="#contact" className="nav__link" onClick={() => setToggle(false)}><i className="uil uil-message nav__icon"></i>Contact</a></li>
+            <li className="nav__item"><a href="#fun" className="nav__link" onClick={() => { setToggle(false); onNavigateFun?.(); }}><i className="uil uil-game-structure nav__icon"></i>Fun Zone</a></li>
           </ul>
 
           <i className="uil uil-times nav__close" onClick={() => setToggle(!toggle)}></i>

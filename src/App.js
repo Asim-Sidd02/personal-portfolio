@@ -16,11 +16,13 @@ import ScrollUp from './components/ScrollUp/ScrollUp';
 import CustomCursor from './components/cursor/CustomCursor';
 import CommandPalette from './components/commandPalette/CommandPalette';
 import Terminal from './components/terminal/Terminal';
+import FunZone from './components/funzone/FunZone';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState('site');
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -94,17 +96,21 @@ const App = () => {
           </div>
 
           {/* ---------- Foreground content ---------- */}
-          <Header />
-          <main className="main">
-            <Home />
-            <About />
-            <GithubStats />
-            <Skills />
-            <Services />
-            <Qualification />
-            <Work />
-            <Contact />
-          </main>
+          <Header onNavigateFun={() => setPage('fun')} />
+          {page === 'fun' ? (
+            <FunZone onBack={() => setPage('site')} />
+          ) : (
+            <main className="main">
+              <Home />
+              <About />
+              <GithubStats />
+              <Skills />
+              <Services />
+              <Qualification />
+              <Work />
+              <Contact />
+            </main>
+          )}
           <ScrollUp />
           <CommandPalette />
           <Terminal />
