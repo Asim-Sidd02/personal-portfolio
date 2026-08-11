@@ -89,6 +89,16 @@ const toggleSiteTheme = () => {
 
 const openExternal = (href) => window.open(href, '_blank', 'noreferrer')
 
+const openGithub = () => {
+    openExternal('https://github.com/Asim-Sidd02')
+    return ['opening github\u2026']
+}
+
+const openLinkedin = () => {
+    openExternal('https://www.linkedin.com/in/asim-siddiqui-a71731229/')
+    return ['opening linkedin\u2026']
+}
+
 const WELCOME_LINES = [
     "hey, welcome to Asim's terminal.",
     "type 'help' to see what this thing can do.",
@@ -122,8 +132,8 @@ const Terminal = () => {
                 return ['wake up, Neo...']
             },
             'sudo hire-me': () => HIRE_ME_LINES,
-            github: () => (openExternal('https://github.com/Asim-Sidd02'), ['opening github\u2026']),
-            linkedin: () => (openExternal('https://www.linkedin.com/in/asim-siddiqui-a71731229/'), ['opening linkedin\u2026']),
+            github: openGithub,
+            linkedin: openLinkedin,
         }),
         []
     )

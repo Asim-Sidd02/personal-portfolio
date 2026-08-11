@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './matrixRain.css'
 
 const CHARACTERS = 'アァカサタナハマヤャラワ01ABCDEFGHIJK'.split('')
