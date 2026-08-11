@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { motion } from 'motion/react'
 import "./services.css"
 import SpotlightCard from "./SpotlightCard";
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.94 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+}
 
 const Services = () => {
     const [toggleState, setToggleState] = useState(0);
@@ -17,6 +23,13 @@ const Services = () => {
             <div className="services__container container grid">
 
                 {/* ----------- CARD 1 ----------- */}
+                <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0 }}
+                >
                 <SpotlightCard
                     className="services__content custom-spotlight-card"
                     spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -72,8 +85,16 @@ const Services = () => {
                         document.body
                     )}
                 </SpotlightCard>
+                </motion.div>
 
                 {/* ----------- CARD 2 ----------- */}
+                <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0.1 }}
+                >
                 <SpotlightCard
                     className="services__content custom-spotlight-card"
                     spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -129,8 +150,16 @@ const Services = () => {
                         document.body
                     )}
                 </SpotlightCard>
+                </motion.div>
 
                 {/* ----------- CARD 3 ----------- */}
+                <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0.2 }}
+                >
                 <SpotlightCard
                     className="services__content custom-spotlight-card"
                     spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -186,7 +215,16 @@ const Services = () => {
                         document.body
                     )}
                 </SpotlightCard>
+                </motion.div>
 
+                {/* ----------- CARD 4 ----------- */}
+                <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0.3 }}
+                >
                 <SpotlightCard
                     className="services__content custom-spotlight-card"
                     spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -242,6 +280,7 @@ const Services = () => {
                         document.body
                     )}
                 </SpotlightCard>
+                </motion.div>
 
             </div>
         </section>

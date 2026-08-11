@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import './commandPalette.css';
 import CV from '../../assets/Asim siddiqui.pdf';
 
@@ -100,49 +101,70 @@ const CommandPalette = () => {
 
   return (
     <>
-      <button
+      <motion.button
         type="button"
         className="command-trigger"
         onClick={() => setOpen(true)}
         aria-label="Open command palette"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         <i className="uil uil-search"></i>
         <span className="command-trigger__hint">⌘K</span>
-      </button>
+      </motion.button>
 
-      {open && (
-        <div className="command-overlay" onClick={() => setOpen(false)}>
-          <div className="command-palette" onClick={(event) => event.stopPropagation()}>
-            <div className="command-palette__input-row">
-              <i className="uil uil-search"></i>
-              <input
-                ref={inputRef}
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                onKeyDown={handleInputKeyDown}
-                placeholder="Type a command or search…"
-                className="command-palette__input"
-              />
-              <span className="command-palette__esc">ESC</span>
-            </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="command-overlay"
+            onClick={() => setOpen(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+          >
+            <motion.div
+              className="command-palette"
+              onClick={(event) => event.stopPropagation()}
+              initial={{ opacity: 0, y: -16, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="command-palette__input-row">
+                <i className="uil uil-search"></i>
+                <input
+                  ref={inputRef}
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  onKeyDown={handleInputKeyDown}
+                  placeholder="Type a command or search…"
+                  className="command-palette__input"
+                />
+                <span className="command-palette__esc">ESC</span>
+              </div>
 
-            <ul className="command-palette__list" ref={listRef}>
-              {filtered.map((command, index) => (
-                <li
-                  key={command.id}
-                  className={`command-palette__item ${index === activeIndex ? 'command-palette__item--active' : ''}`}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => execute(command)}
-                >
-                  <i className={`uil ${command.icon}`}></i>
-                  <span>{command.label}</span>
-                </li>
-              ))}
-              {filtered.length === 0 && <li className="command-palette__empty">No results found</li>}
-            </ul>
-          </div>
-        </div>
-      )}
+              <ul className="command-palette__list" ref={listRef}>
+                {filtered.map((command, index) => (
+                  <motion.li
+                    key={command.id}
+                    className={`command-palette__item ${index === activeIndex ? 'command-palette__item--active' : ''}`}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onClick={() => execute(command)}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.025 }}
+                  >
+                    <i className={`uil ${command.icon}`}></i>
+                    <span>{command.label}</span>
+                  </motion.li>
+                ))}
+                {filtered.length === 0 && <li className="command-palette__empty">No results found</li>}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

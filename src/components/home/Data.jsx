@@ -1,9 +1,20 @@
 import React from 'react'
+import { motion } from 'motion/react'
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.16, delayChildren: 0.35 } },
+}
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 26 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+}
 
 const Data = () => {
   return (
-    <div className="home__data">
-        <h1 className="home__title">Asim Sidd
+    <motion.div className="home__data" variants={containerVariants} initial="hidden" animate="visible">
+        <motion.h1 className="home__title" variants={itemVariants}>Asim Sidd
         <svg
                   width="36"
                   height="36"
@@ -54,12 +65,18 @@ const Data = () => {
                   ></path>
                 </svg>
         
-        </h1>
+        </motion.h1>
 
-        <h3 className="home__subtitle">Full-Stack Developer</h3>
-        <p className="home__description">I'm a full-stack developer based in Hyderabad, building Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I like owning the whole stack, from pixel-perfect interfaces to the APIs behind them.
-        </p>
-        <a href="#contact" className="button button--flex">
+        <motion.h3 className="home__subtitle" variants={itemVariants}>Full-Stack Developer</motion.h3>
+        <motion.p className="home__description" variants={itemVariants}>I'm a full-stack developer based in Hyderabad, building Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I like owning the whole stack, from pixel-perfect interfaces to the APIs behind them.
+        </motion.p>
+        <motion.a
+            href="#contact"
+            className="button button--flex"
+            variants={itemVariants}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+        >
             Say Hello
 
             <svg
@@ -79,8 +96,8 @@ const Data = () => {
                     fill="var(--container-color)"
                   ></path>
                 </svg>
-        </a>
-    </div>
+        </motion.a>
+    </motion.div>
   )
 }
 

@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import './githubStats.css';
 
 const USERNAME = 'Asim-Sidd02';
+
+const repoListVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
+const repoItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+};
 
 const LANGUAGE_COLORS = {
   JavaScript: '#f1e05a',
@@ -94,11 +105,16 @@ const GithubStats = () => {
 
         {status === 'ready' && (
           <div className="github__grid">
-            <a
+            <motion.a
               href={profile.html_url}
               target="_blank"
               rel="noreferrer"
               className="github__profile"
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4 }}
             >
               <img src={profile.avatar_url} alt={profile.login} className="github__avatar" />
               <h3 className="github__name">{profile.name || profile.login}</h3>
@@ -118,11 +134,17 @@ const GithubStats = () => {
                   <span className="github__stat-label">Following</span>
                 </div>
               </div>
-            </a>
+            </motion.a>
 
-            <ul className="github__repos">
+            <motion.ul
+              className="github__repos"
+              variants={repoListVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {repos.map((repo) => (
-                <li key={repo.id} className="github__repo">
+                <motion.li key={repo.id} className="github__repo" variants={repoItemVariants} whileHover={{ y: -3 }}>
                   <a href={repo.html_url} target="_blank" rel="noreferrer" className="github__repo-link">
                     <div className="github__repo-header">
                       <i className="uil uil-github-alt"></i>
@@ -145,9 +167,9 @@ const GithubStats = () => {
                       <span className="github__repo-updated">Updated {timeAgo(repo.pushed_at)}</span>
                     </div>
                   </a>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         )}
       </div>

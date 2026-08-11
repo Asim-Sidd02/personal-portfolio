@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { AnimatePresence } from 'motion/react'
 import { projectsData, projectsNav } from './Data'
 import WorkItems from './WorkItems'
 
@@ -37,9 +38,11 @@ const Works = () => {
       </div>
 
       <div className="work__container container">
-        {projects.map((project) => (
-          <WorkItems item={project} key={project.id} />
-        ))}
+        <AnimatePresence mode="popLayout">
+          {projects.map((project) => (
+            <WorkItems item={project} key={project.id} />
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   )
