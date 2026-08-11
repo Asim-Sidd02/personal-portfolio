@@ -89,7 +89,7 @@ const FunZone = ({ onBack }) => {
     const nextBest = Math.max(best, score);
     phase === 'finished' && nextBest > best && setBest(nextBest);
     phase === 'finished' && window.localStorage.setItem('funzone-best-score', String(nextBest));
-  }, [phase]);
+  }, [phase, score, best]);
 
   const actionMap = {
     idle: { label: 'Start', handler: startGame },
