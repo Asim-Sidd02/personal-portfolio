@@ -1,0 +1,16 @@
+.matrix-rain {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5000;
+    background-color: #000;
+    animation: matrixFadeOut 0.6s ease forwards;
+    animation-delay: 5.4s;
+}
+
+@keyframes matrixFadeOut {
+    to {
+        opacity: 0;
+    }
+}

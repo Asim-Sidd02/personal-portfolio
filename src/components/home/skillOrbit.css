@@ -1,0 +1,57 @@
+.skill-orbit{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.skill-orbit__ring{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 344px;
+  height: 344px;
+  transform: translate(-50%, -50%);
+  border: 1px dashed var(--card-border);
+  border-radius: 50%;
+  animation: skill-orbit-ring-spin 60s linear infinite;
+}
+
+@keyframes skill-orbit-ring-spin{
+  from{ transform: translate(-50%, -50%) rotate(0deg); }
+  to{ transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.skill-orbit__pivot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.skill-orbit__arm{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.skill-orbit__badge{
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--container-color);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  font-size: 1.4rem;
+  cursor: default;
+}
+
+@media screen and (max-width: 768px){
+  .skill-orbit{
+    display: none;
+  }
+}

@@ -78,6 +78,25 @@
   border-radius: 0.35rem;
 }
 
+.command-palette__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--button-glass-bg);
+  border: 1px solid var(--card-border);
+  color: var(--title-color);
+  font-size: 1rem;
+}
+
+.command-palette__theme-toggle:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: rotate(20deg);
+}
+
 .command-palette__list {
   max-height: 320px;
   overflow-y: auto;

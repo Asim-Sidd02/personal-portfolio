@@ -38,22 +38,31 @@ const scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({ be
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const openLink = (href) => window.open(href, '_blank', 'noreferrer');
 
+const readTheme = () => (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
 const CommandPalette = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
+  const [theme, setTheme] = useState(readTheme);
   const inputRef = useRef(null);
   const listRef = useRef(null);
+
+  const handleThemeToggle = (event) => {
+    event?.stopPropagation();
+    toggleTheme();
+    setTheme(readTheme());
+  };
 
   const commands = useMemo(
     () => [
       ...SECTIONS.map((section) => ({ ...section, run: () => scrollToSection(section.id) })),
-      { id: 'theme', label: 'Toggle Light / Dark Theme', icon: 'uil-moon', run: toggleTheme },
+      { id: 'theme', label: 'Toggle Light / Dark Theme', icon: theme === 'dark' ? 'uil-sun' : 'uil-moon', run: handleThemeToggle },
       { id: 'cv', label: 'Download CV', icon: 'uil-file-download-alt', run: downloadCV },
       { id: 'top', label: 'Scroll to Top', icon: 'uil-arrow-up', run: scrollToTop },
       ...LINKS.map((link) => ({ ...link, run: () => openLink(link.href) })),
     ],
-    []
+    [theme]
   );
 
   const filtered = useMemo(
@@ -70,6 +79,12 @@ const CommandPalette = () => {
     };
     window.addEventListener('keydown', handleGlobalKeyDown);
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleExternalThemeChange = (event) => setTheme(event.detail);
+    window.addEventListener('asim-theme-change', handleExternalThemeChange);
+    return () => window.removeEventListener('asim-theme-change', handleExternalThemeChange);
   }, []);
 
   useEffect(() => {
@@ -141,6 +156,15 @@ const CommandPalette = () => {
                   placeholder="Type a command or search…"
                   className="command-palette__input"
                 />
+                <button
+                  type="button"
+                  className="command-palette__theme-toggle"
+                  onClick={handleThemeToggle}
+                  aria-label="Toggle light and dark theme"
+                  title="Toggle theme"
+                >
+                  <i className={`uil ${theme === 'dark' ? 'uil-sun' : 'uil-moon'}`}></i>
+                </button>
                 <span className="command-palette__esc">ESC</span>
               </div>
 

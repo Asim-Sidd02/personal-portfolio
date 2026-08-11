@@ -15,6 +15,7 @@ import Preloader from './components/loader/Preloader';
 import ScrollUp from './components/ScrollUp/ScrollUp';
 import CustomCursor from './components/cursor/CustomCursor';
 import CommandPalette from './components/commandPalette/CommandPalette';
+import Terminal from './components/terminal/Terminal';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
@@ -106,6 +107,7 @@ const App = () => {
           </main>
           <ScrollUp />
           <CommandPalette />
+          <Terminal />
         </div>
       )}
     </>
