@@ -1,108 +1,223 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import './Preloader.css';
+
+const STATUS_MESSAGES = [
+  'Curating the details',
+  'Arranging the layout',
+  'Polishing the pixels',
+  'Almost there',
+];
+
+const CIRCUMFERENCE = 470;
 
 const Preloader = () => {
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setProgress((prev) => Math.min(prev + Math.ceil(Math.random() * 5), 100));
+    }, 45);
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  const statusIndex = Math.min(
+    Math.floor(progress / (100 / STATUS_MESSAGES.length)),
+    STATUS_MESSAGES.length - 1
+  );
+
   return (
     <StyledWrapper>
-      <div className="loader-container">
-        <div className="traffic-light">
-          <div className="light-row">
-            <div className="light red-light" />
-          </div>
-          <div className="light-row">
-            <div className="light yellow-light" />
-          </div>
-          <div className="light-row">
-            <div className="light green-light" />
+      <div className="glow" />
+
+      <div className="core">
+        <div className="blob-orbit">
+          <svg className="ring-svg" viewBox="0 0 160 160">
+            <circle className="ring-track" cx="80" cy="80" r="75" />
+            <circle
+              className="ring-progress"
+              cx="80"
+              cy="80"
+              r="75"
+              style={{
+                strokeDashoffset: CIRCUMFERENCE - (CIRCUMFERENCE * progress) / 100,
+              }}
+            />
+          </svg>
+
+          <div className="blob">
+            <span className="percent">{progress}</span>
           </div>
         </div>
 
-        <div className="loading-status" />
+        <div className="mark">
+          <span className="mark-line" />
+          <h3 className="mark-title">Asim Siddiqui</h3>
+        </div>
+
+        <span className="status" key={statusIndex}>
+          {STATUS_MESSAGES[statusIndex]}
+        </span>
       </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-  /* 🔥 Fullscreen dark background */
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: #0b0b0b; /* Pure dark theme */
+  background: #0d0b09;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999999; /* Above everything */
-  animation: fadeIn 0.5s ease-out forwards;
+  overflow: hidden;
+  z-index: 999999;
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
 
-  /* Centering container */
-  .loader-container {
+  .glow {
+    position: absolute;
+    width: 42vw;
+    height: 42vw;
+    min-width: 420px;
+    min-height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 154, 88, 0.22) 0%, transparent 68%);
+    animation: breathe 5s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.12); opacity: 1; }
+  }
+
+  .core {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    z-index: 2;
+    gap: 2rem;
   }
 
-  /* Your existing styles below */
-  .traffic-light {
-    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1e1e1e 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 28px;
-    padding: 24px;
-    box-shadow:
-      0 40px 80px rgba(0, 0, 0, 0.5),
-      0 20px 40px rgba(0, 0, 0, 0.3),
-      0 8px 16px rgba(0, 0, 0, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.05),
-      inset 0 -2px 20px rgba(0, 0, 0, 0.8);
-    width: 110px;
-  }
-
-  .light-row {
-    margin: 18px 0;
+  .blob-orbit {
+    position: relative;
+    width: 168px;
+    height: 168px;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  .light {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.06);
-    overflow: hidden;
-    transition: 0.6s;
+  .ring-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
   }
 
-  /* Text below signals */
-  .loading-status {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 500;
-    text-align: center;
+  .ring-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 1;
+  }
+
+  .ring-progress {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-dasharray: 470;
+    transition: stroke-dashoffset 0.15s linear;
+  }
+
+  .blob {
+    width: 132px;
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(150deg, #c69a58 0%, var(--accent-color) 55%, #8a6224 100%);
+    box-shadow:
+      inset 0 0 0 8px rgb(255 255 255 / 25%),
+      0 25px 50px rgba(0, 0, 0, 0.16);
+    animation: blobMorph 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  @keyframes blobMorph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  }
+
+  .percent {
+    font-family: var(--heading-font);
+    font-style: italic;
+    font-weight: var(--font-semi-bold);
+    font-size: 2.25rem;
+    color: #0d0b09;
+    letter-spacing: 0.5px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .mark-line {
+    width: 48px;
+    height: 1px;
+    background-color: var(--accent-color);
+  }
+
+  .mark-title {
+    font-family: var(--heading-font);
+    font-style: italic;
+    font-weight: var(--font-medium);
+    font-size: var(--h2-font-size);
+    color: #f4ede3;
     letter-spacing: 0.5px;
   }
 
-  /* Responsive */
+  .status {
+    font-family: var(--body-font);
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-medium);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    animation: statusFade 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes statusFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   @media (max-width: 480px) {
-    .traffic-light {
-      width: 90px;
-      padding: 18px;
+    .blob-orbit {
+      width: 128px;
+      height: 128px;
     }
-    .light {
-      width: 34px;
-      height: 34px;
+    .blob {
+      width: 100px;
+      height: 100px;
     }
-    .loading-status {
-      font-size: 12px;
+    .percent {
+      font-size: 1.6rem;
+    }
+    .mark-title {
+      font-size: var(--h3-font-size);
     }
   }
 `;
