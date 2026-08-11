@@ -13,6 +13,7 @@
     font-size: 1rem;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     z-index: 150;
+    transition: opacity .25s ease, visibility .25s ease;
 }
 
 .terminal-trigger:hover {
@@ -143,5 +144,13 @@
 
     .terminal-window__body {
         height: 60vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body.nav-menu-open .terminal-trigger {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 }

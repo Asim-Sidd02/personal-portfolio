@@ -41,3 +41,11 @@
     height: 3rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  body.nav-menu-open .scrollup {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
