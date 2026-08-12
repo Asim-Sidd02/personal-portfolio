@@ -35,13 +35,13 @@ const HELP_LINES = [
     '  joke        a programmer joke',
     '  coffee      brew something',
     '  matrix      wake up, Neo',
-    '  sudo hire-me     try it',
+    '  sudo connect     try it',
     '  clear       clear the screen',
     '  exit        close the terminal',
 ]
 
 const ABOUT_LINES = [
-    "Asim Siddiqui \u2014 full-stack developer based in Hyderabad.",
+    "Asim Siddiqui \u2014 Software Engineer based in Hyderabad.",
     'Vue.js, Laravel, Flutter, React, Node.js and Shopify, end to end.',
     "Currently building at Adab Digital, and shipping side projects for fun.",
 ]
@@ -54,10 +54,10 @@ const SKILLS_LINES = [
 ]
 
 const PROJECTS_LINES = [
-    'personal : Weather App, TaskMate, Spendster, Magic Mirror,',
-    '           Mental Health Chatbot, Plan & Scheduling App',
-    'client   : Somany Ceramics, Jurix Legal Apps, Aptronix India',
-    "type 'sudo hire-me' if you like what you see.",
+    'personal     : Weather App, TaskMate, Spendster, Magic Mirror,',
+    '               Mental Health Chatbot, Plan & Scheduling App',
+    'professional : Somany Ceramics, Jurix Legal Apps, Aptronix India',
+    "type 'sudo connect' if you like what you see.",
 ]
 
 const CONTACT_LINES = [
@@ -71,10 +71,10 @@ const SOCIAL_LINES = [
     'instagram -> https://www.instagram.com/asim_sidd_/',
 ]
 
-const HIRE_ME_LINES = [
-    'permission granted.',
-    'initializing recruitment sequence... done.',
-    'result: this developer ships fast, cares about detail, and is available.',
+const CONNECT_LINES = [
+    'access granted.',
+    'initializing connection sequence... done.',
+    'result: this engineer ships fast, cares about detail, and is always up for a good conversation.',
     "scroll down to the contact section and say hello.",
 ]
 
@@ -131,7 +131,7 @@ const Terminal = () => {
                 setMatrixActive(true)
                 return ['wake up, Neo...']
             },
-            'sudo hire-me': () => HIRE_ME_LINES,
+            'sudo connect': () => CONNECT_LINES,
             github: openGithub,
             linkedin: openLinkedin,
         }),

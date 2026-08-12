@@ -56,13 +56,14 @@ const Contact = React.forwardRef((props, ref) => {
   return (
     <section ref={ref} id="contact" className="contact section">
       <h2 className="section__title">Get In Touch</h2>
-      <span className="section__subtitle">Let's Work Together</span>
+      <span className="section__subtitle">Let's Connect</span>
 
       <div className="contact__container container grid">
         <div className="contact__info">
           <p className="contact__lede">
-            Have a project in mind or just want to say hello? I read every
-            message personally and typically reply within a day.
+            Interested in connecting, discussing engineering roles, or just
+            want to say hello? I read every message personally and typically
+            reply within a day.
           </p>
 
           <div className="contact__detail">
@@ -97,7 +98,7 @@ const Contact = React.forwardRef((props, ref) => {
             <div className="contact__detail-text">
               <span className="contact__detail-title">Availability</span>
               <span className="contact__detail-value">
-                Open to new projects
+                Open to new opportunities
               </span>
             </div>
           </div>

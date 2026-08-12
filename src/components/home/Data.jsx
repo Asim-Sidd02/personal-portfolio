@@ -67,8 +67,8 @@ const Data = () => {
         
         </motion.h1>
 
-        <motion.h3 className="home__subtitle" variants={itemVariants}>Full-Stack Developer</motion.h3>
-        <motion.p className="home__description" variants={itemVariants}>I'm a full-stack developer based in Hyderabad, building Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I like owning the whole stack, from pixel-perfect interfaces to the APIs behind them.
+        <motion.h3 className="home__subtitle" variants={itemVariants}>Software Engineer</motion.h3>
+        <motion.p className="home__description" variants={itemVariants}>I'm a Software Engineer based in Hyderabad, working across Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I enjoy owning problems end-to-end, from pixel-perfect interfaces to the APIs behind them.
         </motion.p>
         <motion.a
             href="#contact"

@@ -14,7 +14,7 @@ const About = () => {
 
            <div className="about___data">
             <Info />
-            <p className="about__description">Hi there! I'm a full-stack developer based in Hyderabad, building everything from Shopify storefronts and Laravel/Vue.js web apps to Flutter mobile apps and Node.js backends. As a dedicated coder, I thrive on solving complex problems and turning innovative ideas into functional realities.</p>
+            <p className="about__description">Hi there! I'm a Software Engineer based in Hyderabad, working across everything from Shopify storefronts and Laravel/Vue.js web apps to Flutter mobile apps and Node.js backends. I thrive on solving complex problems and turning ideas into well-engineered, reliable software.</p>
             <a download= "" href={CV} className="button button--flex">Download CV
             <svg
                 class="button__icon"
