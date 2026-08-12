@@ -17,12 +17,22 @@ import CustomCursor from './components/cursor/CustomCursor';
 import CommandPalette from './components/commandPalette/CommandPalette';
 import Terminal from './components/terminal/Terminal';
 import FunZone from './components/funzone/FunZone';
+import ScrollProgress from './components/scrollProgress/ScrollProgress';
+import KonamiCode from './components/easterEgg/KonamiCode';
+import ShortcutsHelp from './components/shortcuts/ShortcutsHelp';
 
 import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState('site');
+
+  useEffect(() => {
+    console.log('%cHey there 👋', 'font-size: 20px; font-weight: bold; color: #a97c33;');
+    console.log('%cCurious developer, huh? I like that.', 'font-size: 13px; color: #888;');
+    console.log("%cTry pressing Ctrl/Cmd+K, the backtick key (\`), or '?' on this site.", 'font-size: 13px; color: #888;');
+    console.log('%cLet\'s talk: asimsiddiqui8181@gmail.com', 'font-size: 13px; color: #a97c33;');
+  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,7 +64,11 @@ const App = () => {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <CustomCursor />
+      <ScrollProgress />
+      <KonamiCode />
+      <ShortcutsHelp />
       {loading ? (
         <Preloader />
       ) : (
@@ -100,7 +114,7 @@ const App = () => {
           {page === 'fun' ? (
             <FunZone onBack={() => setPage('site')} />
           ) : (
-            <main className="main">
+            <main className="main" id="main-content">
               <Home />
               <About />
               <GithubStats />

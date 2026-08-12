@@ -14,7 +14,7 @@ const SECTIONS = [
 ];
 
 const LINKS = [
-  { id: 'github', label: 'Open GitHub', icon: 'uil-github-alt', href: 'https://github.com/Asim-Sidd02' },
+  { id: 'github-link', label: 'Open GitHub', icon: 'uil-github-alt', href: 'https://github.com/Asim-Sidd02' },
   { id: 'linkedin', label: 'Open LinkedIn', icon: 'uil-linkedin', href: 'https://www.linkedin.com/in/asim-siddiqui-a71731229/' },
   { id: 'instagram', label: 'Open Instagram', icon: 'uil-instagram', href: 'https://www.instagram.com/asim_sidd_/' },
 ];
@@ -37,16 +37,21 @@ const downloadCV = () => {
 const scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const openLink = (href) => window.open(href, '_blank', 'noreferrer');
+const printResume = () => window.print();
 
 const readTheme = () => (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const CommandPalette = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const [theme, setTheme] = useState(readTheme);
+  const [listening, setListening] = useState(false);
   const inputRef = useRef(null);
   const listRef = useRef(null);
+  const recognitionRef = useRef(null);
 
   const handleThemeToggle = (event) => {
     event?.stopPropagation();
@@ -54,11 +59,38 @@ const CommandPalette = () => {
     setTheme(readTheme());
   };
 
+  const beginRecognition = () => {
+    const recognition = new SpeechRecognitionAPI();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => setListening(true);
+    recognition.onerror = () => setListening(false);
+    recognition.onend = () => setListening(false);
+    recognition.onresult = (resultEvent) => {
+      const transcript = resultEvent.results[0][0].transcript;
+      setQuery(transcript);
+      setActiveIndex(0);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
+  };
+
+  const startListening = (event) => {
+    event?.stopPropagation();
+    const supported = Boolean(SpeechRecognitionAPI);
+    supported || alert("Voice commands aren't supported in this browser. Try Chrome or Edge.");
+    supported && beginRecognition();
+  };
+
   const commands = useMemo(
     () => [
       ...SECTIONS.map((section) => ({ ...section, run: () => scrollToSection(section.id) })),
       { id: 'theme', label: 'Toggle Light / Dark Theme', icon: theme === 'dark' ? 'uil-sun' : 'uil-moon', run: handleThemeToggle },
       { id: 'cv', label: 'Download CV', icon: 'uil-file-download-alt', run: downloadCV },
+      { id: 'print', label: 'Print / Save as PDF', icon: 'uil-print', run: printResume },
       { id: 'top', label: 'Scroll to Top', icon: 'uil-arrow-up', run: scrollToTop },
       ...LINKS.map((link) => ({ ...link, run: () => openLink(link.href) })),
     ],
@@ -99,6 +131,8 @@ const CommandPalette = () => {
     const activeItem = listRef.current?.children[activeIndex];
     activeItem?.scrollIntoView({ block: 'nearest' });
   }, [activeIndex]);
+
+  useEffect(() => () => recognitionRef.current?.stop(), []);
 
   const execute = (command) => {
     command?.run();
@@ -156,6 +190,16 @@ const CommandPalette = () => {
                   placeholder="Type a command or search…"
                   className="command-palette__input"
                 />
+                <button
+                  type="button"
+                  className={`command-palette__mic ${listening ? 'command-palette__mic--listening' : ''}`}
+                  onClick={startListening}
+                  aria-label="Search by voice"
+                  title="Search by voice"
+                >
+                  {listening && <span className="command-palette__mic-pulse"></span>}
+                  <i className="uil uil-microphone"></i>
+                </button>
                 <button
                   type="button"
                   className="command-palette__theme-toggle"

@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'motion/react'
 
-const WorkItems = ({ item }) => {
+const WorkItems = React.forwardRef(({ item }, ref) => {
   return (
     <motion.div
+      ref={ref}
       className="work__card-wrapper"
       style={{ height: '100%' }}
       layout
@@ -21,6 +22,6 @@ const WorkItems = ({ item }) => {
       </div>
     </motion.div>
   )
-}
+})
 
 export default WorkItems

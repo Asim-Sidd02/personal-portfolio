@@ -19,13 +19,22 @@ const FEEDBACK_COPY = {
 };
 
 const INITIAL_FORM = { name: '', email: '', subject: '', message: '' };
+const EMAIL_ADDRESS = 'asimsiddiqui8181@gmail.com';
 
 const Contact = React.forwardRef((props, ref) => {
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('idle');
+  const [copied, setCopied] = useState(false);
 
   const updateField = (field) => (event) =>
     setForm((prev) => ({ ...prev, [field]: event.target.value }));
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(EMAIL_ADDRESS).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,12 +81,23 @@ const Contact = React.forwardRef((props, ref) => {
             </span>
             <div className="contact__detail-text">
               <span className="contact__detail-title">Email</span>
-              <a
-                href="mailto:asimsiddiqui8181@gmail.com"
-                className="contact__detail-value"
-              >
-                asimsiddiqui8181@gmail.com
-              </a>
+              <div className="contact__email-row">
+                <a
+                  href="mailto:asimsiddiqui8181@gmail.com"
+                  className="contact__detail-value"
+                >
+                  asimsiddiqui8181@gmail.com
+                </a>
+                <button
+                  type="button"
+                  className="contact__copy-btn"
+                  onClick={copyEmail}
+                  aria-label="Copy email address"
+                >
+                  <i className={`uil ${copied ? 'uil-check' : 'uil-copy'}`} />
+                  <span className="contact__copy-tooltip">{copied ? 'Copied!' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
 

@@ -64,6 +64,52 @@ a.contact__detail-value:hover {
   color: var(--accent-color);
 }
 
+.contact__email-row {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+
+.contact__copy-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: var(--button-glass-bg);
+  color: var(--title-color);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.contact__copy-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.contact__copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--title-color);
+  color: var(--container-color);
+  font-size: var(--tiny-font-size);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact__copy-btn:hover .contact__copy-tooltip {
+  opacity: 1;
+}
+
 .contact__form {
   background: var(--container-color);
   border: 1px solid rgba(0, 0, 0, 0.06);

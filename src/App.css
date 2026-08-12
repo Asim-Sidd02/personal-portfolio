@@ -77,6 +77,24 @@
   box-sizing: border-box;
 }
 
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  z-index: 1200;
+  background-color: var(--title-color);
+  color: var(--container-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--small-font-size);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -367,5 +385,104 @@ img:hover {
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
+  }
+}
+
+/*=============== PRINT / SAVE AS PDF ===============*/
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #141414 !important;
+    overflow: visible !important;
+  }
+
+  .skip-link,
+  .header,
+  .custom-cursor,
+  .scroll-progress,
+  .section-rail,
+  .scrollup,
+  .command-trigger,
+  .command-overlay,
+  .services__modal,
+  .casestudy__modal,
+  .funzone,
+  .terminal,
+  .matrix-rain,
+  .skills-orbit3d,
+  .work__filters,
+  .work__button,
+  .services__button,
+  .office__link--button,
+  .contact__form,
+  .konami-confetti,
+  .konami-toast,
+  .shortcuts-trigger,
+  .shortcuts-overlay,
+  [style*="position: fixed"] {
+    display: none !important;
+  }
+
+  .main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .section {
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 1rem 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .about__container,
+  .skills__container,
+  .qualification__container,
+  .office__container,
+  .contact__container {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .section__title,
+  .section__subtitle,
+  h1, h2, h3, h4, h5, p, span, li {
+    color: #141414 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section__title::after {
+    background-color: #141414 !important;
+  }
+
+  .office__card,
+  .work__card,
+  .contact__detail,
+  .qualification__data {
+    border: 1px solid #d0d0d0 !important;
+    background: #ffffff !important;
+  }
+
+  a {
+    color: #141414 !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.7em;
+    color: #555555 !important;
   }
 }

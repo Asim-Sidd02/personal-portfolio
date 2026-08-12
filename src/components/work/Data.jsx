@@ -35,21 +35,21 @@ export const projectsData = [
     url: "https://github.com/Asim-Sidd02/RiskPredectionSystem",
   },
   {
-    id: 0,
+    id: 2,
     image: Work16,
     title: "Popcorn Pal(A movie app UI)",
     category: "app",
     url: "https://github.com/Asim-Sidd02/PopcornPal",
   },
   {
-    id: 2,
+    id: 3,
     image: Work14,
     title: "Weather App",
     category: "app",
     url: "https://github.com/Asim-Sidd02/Weather-App",
   },
    {
-    id: 1,
+    id: 4,
     image: Work17,
     title: "TaskMate",
     category: "app",
@@ -58,28 +58,28 @@ export const projectsData = [
  
    
   {
-    id: 3,
+    id: 5,
     image: Work13,
     title: "Spendster(Expense Tracking App)",
     category: "app",
     url: "https://github.com/Asim-Sidd02/Spendster",
   },
       {
-        id: 4,
+        id: 6,
         image: Work3,
         title: "Magic Mirror",
         category: "IoT/ML",
         url: "https://github.com/Asim-Sidd02/MagicMirror/tree/main/MagicMirror",
       },
       {
-        id: 5,
+        id: 7,
         image: Work4,
         title: "Mental Health Chatbot",
         category: "web",
         url: "https://github.com/Asim-Sidd02/HackForHealth",
       },
       {
-        id: 6,
+        id: 8,
         image: Work5,
         title: "Plan And Scheduling App",
         category: "app",
@@ -87,28 +87,28 @@ export const projectsData = [
       },
      
       {
-        id: 7,
+        id: 9,
         image: Work7,
         title: "Task Management System",
         category: "web",
         url: "https://github.com/Asim-Sidd02/TaskManagementSystem",
       },
       {
-        id: 8,
+        id: 10,
         image: Work9,
         title: "Customizable Chatbot",
         category: "IoT/ML",
         url: "https://github.com/Asim-Sidd02/KgrVirtualAssistant",
       },
       {
-        id: 9,
+        id: 11,
         image: Work8,
         title: "Tic Tac Toe",
         category: "app",
         url: "https://github.com/Asim-Sidd02/TicTacToe--Using-Flutter",
       },
       {
-        id: 10,
+        id: 12,
         image: Work1,
         title: "Web Repository Viewer",
         category: "web",
@@ -117,21 +117,21 @@ export const projectsData = [
      
      
       {
-        id: 11,
+        id: 13,
         image: Work6,
         title: "Speech To Text Convertor",
         category: "app",
         url: "https://github.com/Asim-Sidd02/SpeechToText",
       },
       {
-        id: 12,
+        id: 14,
         image: Work2,
         title: "Metrial Management App",
         category: "app",
         url: "https://github.com/C0debl00ded/Material_Management_App",
       },
       {
-        id: 13,
+        id: 15,
         image: Work10,
         title: "Web Chat App",
         category: "web",

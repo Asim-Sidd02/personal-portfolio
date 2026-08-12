@@ -1,71 +1,24 @@
 import React from 'react'
+import SkillBar from './SkillBar'
 
-const Frontend = () => {
-  return (
-    <div className="skill__content">
-        <h3 className="skills__title">Frontend & Mobile</h3>
-        <div className="skills__box">
-        <div className="skills__group">
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">HTML</h3>
-                <span className="skills__level">Advanced</span>
-               </div>
-            </div>
+const frontendSkills = [
+  { name: 'HTML', level: 'Advanced', percent: 92 },
+  { name: 'CSS', level: 'Advanced', percent: 90 },
+  { name: 'JavaScript', level: 'Advanced', percent: 88 },
+  { name: 'Vue.js', level: 'Advanced', percent: 85 },
+  { name: 'Shopify Liquid', level: 'Advanced', percent: 85 },
+  { name: 'Flutter', level: 'Intermediate', percent: 70 },
+]
 
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">CSS</h3>
-                <span className="skills__level">Advanced</span>
-               </div>
-            </div>
-
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">JavaScript</h3>
-                <span className="skills__level">Advanced</span>
-               </div>
-            </div>
-
-        </div>
-
-
-        <div className="skills__group">
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">Vue.js</h3>
-                <span className="skills__level">Advanced</span>
-               </div>
-            </div>
-
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">Shopify Liquid</h3>
-                <span className="skills__level">Advanced</span>
-               </div>
-            </div>
-
-            <div className="skills__data">
-               <i class='bx bx-badge-check'></i> 
-               <div>
-                <h3 className="skills__name">Flutter</h3>
-                <span className="skills__level">Intermediate</span>
-               </div>
-            </div>
-
-        </div>
-
-
-
-
-        </div>
+const Frontend = () => (
+  <div className="skill__content">
+    <h3 className="skills__title">Frontend & Mobile</h3>
+    <div className="skills__box skills__box--stack">
+      {frontendSkills.map((skill) => (
+        <SkillBar key={skill.name} name={skill.name} level={skill.level} percent={skill.percent} />
+      ))}
     </div>
-  )
-}
+  </div>
+)
 
 export default Frontend

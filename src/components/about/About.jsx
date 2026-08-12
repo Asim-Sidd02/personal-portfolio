@@ -17,7 +17,7 @@ const About = () => {
             <p className="about__description">Hi there! I'm a Software Engineer based in Hyderabad, working across everything from Shopify storefronts and Laravel/Vue.js web apps to Flutter mobile apps and Node.js backends. I thrive on solving complex problems and turning ideas into well-engineered, reliable software.</p>
             <a download= "" href={CV} className="button button--flex">Download CV
             <svg
-                class="button__icon"
+                className="button__icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"

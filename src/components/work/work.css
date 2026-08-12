@@ -151,7 +151,14 @@
     font-family: var(--heading-font);
     font-size: var(--h3-font-size);
     font-weight: var(--font-semi-bold);
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.25rem;
+}
+
+.office__role{
+    display: block;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    margin-bottom: 0.85rem;
 }
 
 .office__description{
@@ -161,21 +168,171 @@
     margin-bottom: 1rem;
 }
 
+.office__stack{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
+}
+
+.office__chip{
+    font-size: 0.72rem;
+    font-weight: var(--font-medium);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    color: var(--title-color);
+    background-color: var(--button-glass-bg);
+    border: 1px solid var(--card-border);
+}
+
 .office__link{
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    column-gap: 0.4rem;
     width: fit-content;
     color: var(--container-color);
     background-color: var(--title-color);
     padding: 0.75rem 1.25rem;
     border-radius: 0.85rem;
     transition: opacity 0.25s ease, transform 0.25s ease;
+    border: none;
+    cursor: pointer;
+    font-size: var(--small-font-size);
+    font-family: inherit;
 }
 
 .office__link:hover{
     opacity: 0.95;
     transform: translateY(-1px);
+}
+
+/* ---------- Case Study Modal ---------- */
+.casestudy__modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: var(--z-modal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .3s, visibility .3s;
+}
+
+.casestudy__modal-content{
+    width: 620px;
+    max-width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    background-color: var(--container-color);
+    padding: 3.25rem 2.5rem 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: scale(0.94);
+    transition: transform .3s;
+    text-align: left;
+}
+
+.casestudy__modal-close{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.casestudy__eyebrow{
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: var(--font-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-color-light);
+    margin-bottom: 0.35rem;
+}
+
+.casestudy__title{
+    font-family: var(--heading-font);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    margin-bottom: 1rem;
+}
+
+.casestudy__stack{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.casestudy__heading{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+    margin-bottom: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.casestudy__paragraph{
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    line-height: 1.7;
+}
+
+.casestudy__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.65rem;
+}
+
+.casestudy__list-item{
+    display: flex;
+    align-items: flex-start;
+    column-gap: 0.6rem;
+}
+
+.casestudy__list-item p{
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    line-height: 1.6;
+}
+
+.casestudy__list-icon{
+    color: var(--title-color);
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.casestudy__cta{
+    display: inline-flex;
+    margin-top: 2rem;
+}
+
+/* Active Modal */
+.casestudy__modal.active-modal{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.casestudy__modal.active-modal .casestudy__modal-content{
+    transform: scale(1);
+}
+
+@media screen and (max-width: 576px) {
+    .casestudy__modal-content{
+        padding: 3.25rem 1.5rem 2rem;
+    }
 }
 
 .work__card,

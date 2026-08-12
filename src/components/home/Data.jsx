@@ -11,9 +11,29 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
+const greetingBands = [
+    { max: 5, text: 'Burning the midnight oil? \u{1F319}' },
+    { max: 12, text: 'Good morning \u2014 thanks for stopping by \u{1F44B}' },
+    { max: 17, text: 'Good afternoon \u2014 thanks for stopping by \u{1F44B}' },
+    { max: 21, text: 'Good evening \u2014 thanks for stopping by \u{1F44B}' },
+    { max: 24, text: 'Burning the midnight oil? \u{1F319}' },
+]
+
+const getGreeting = () => {
+    const hour = new Date().getHours()
+    return greetingBands.find((band) => hour < band.max)?.text ?? greetingBands[0].text
+}
+
 const Data = () => {
   return (
     <motion.div className="home__data" variants={containerVariants} initial="hidden" animate="visible">
+        <motion.span className="home__greeting" variants={itemVariants}>{getGreeting()}</motion.span>
+
+        <motion.span className="home__status" variants={itemVariants}>
+            <span className="home__status-dot"></span>
+            Currently building at Adab Digital
+        </motion.span>
+
         <motion.h1 className="home__title" variants={itemVariants}>Asim Sidd
         <svg
                   width="36"
@@ -21,7 +41,7 @@ const Data = () => {
                   viewBox="0 0 48 48"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="home__hand"
+                  className="home__hand"
                 >
                   <path
                     d="M25.4995 32.0305L31.3495 33.1555L36.1495 8.48051C36.4495 6.83051 35.3995 5.18051 33.8245 4.88051C32.1745 4.58051 30.5995 5.70551 30.2995 7.35551L25.4995 32.0305Z"
@@ -80,7 +100,7 @@ const Data = () => {
             Say Hello
 
             <svg
-                  class="button__icon"
+                  className="button__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"

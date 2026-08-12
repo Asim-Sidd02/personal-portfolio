@@ -1,71 +1,24 @@
 import React from 'react'
+import SkillBar from './SkillBar'
 
-const Backend = () => {
-  return (
-    <div className="skill__content">
+const backendSkills = [
+  { name: 'PHP', level: 'Intermediate', percent: 72 },
+  { name: 'Node.js', level: 'Basic', percent: 55 },
+  { name: 'Python', level: 'Intermediate', percent: 68 },
+  { name: 'MySQL', level: 'Intermediate', percent: 75 },
+  { name: 'Firebase', level: 'Intermediate', percent: 70 },
+  { name: 'Java', level: 'Intermediate', percent: 65 },
+]
+
+const Backend = () => (
+  <div className="skill__content">
     <h3 className="skills__title">Backend Developer</h3>
-    <div className="skills__box">
-    <div className="skills__group">
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">php</h3>
-            <span className="skills__level">Intermediate</span>
-           </div>
-        </div>
-
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">Node JS</h3>
-            <span className="skills__level">Basic</span>
-           </div>
-        </div>
-
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">Python</h3>
-            <span className="skills__level">Intermediate</span>
-           </div>
-        </div>
-
+    <div className="skills__box skills__box--stack">
+      {backendSkills.map((skill) => (
+        <SkillBar key={skill.name} name={skill.name} level={skill.level} percent={skill.percent} />
+      ))}
     </div>
-
-
-    <div className="skills__group">
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">MySQL</h3>
-            <span className="skills__level">Intermediate</span>
-           </div>
-        </div>
-
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">Firebase</h3>
-            <span className="skills__level">Intermediate</span>
-           </div>
-        </div>
-
-        <div className="skills__data">
-           <i class='bx bx-badge-check'></i> 
-           <div>
-            <h3 className="skills__name">Java</h3>
-            <span className="skills__level">Intermediate</span>
-           </div>
-        </div>
-
-    </div>
-
-
-
-
-    </div>
-</div>
-  )
-}
+  </div>
+)
 
 export default Backend
