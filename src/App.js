@@ -32,7 +32,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || page !== 'site') return;
 
     const sections = Array.from(document.querySelectorAll('.section'));
 
@@ -50,7 +50,7 @@ const App = () => {
     window.addEventListener('scroll', revealSections, { passive: true });
 
     return () => window.removeEventListener('scroll', revealSections);
-  }, [loading]);
+  }, [loading, page]);
 
   return (
     <>
