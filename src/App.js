@@ -30,7 +30,7 @@ const App = () => {
   useEffect(() => {
     console.log('%cHey there 👋', 'font-size: 20px; font-weight: bold; color: #a97c33;');
     console.log('%cCurious developer, huh? I like that.', 'font-size: 13px; color: #888;');
-    console.log("%cTry pressing Ctrl/Cmd+K, the backtick key (\`), or '?' on this site.", 'font-size: 13px; color: #888;');
+    console.log("%cTry pressing Ctrl/Cmd+K, the backtick key (`), or '?' on this site.", 'font-size: 13px; color: #888;');
     console.log('%cLet\'s talk: asimsiddiqui8181@gmail.com', 'font-size: 13px; color: #a97c33;');
   }, []);
 
