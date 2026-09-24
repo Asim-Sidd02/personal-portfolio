@@ -13,118 +13,69 @@ import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import Preloader from './components/loader/Preloader';
 import ScrollUp from './components/ScrollUp/ScrollUp';
-import CustomCursor from './components/cursor/CustomCursor';
+import ScrollProgress from './components/scrollProgress/ScrollProgress';
 import CommandPalette from './components/commandPalette/CommandPalette';
 import Terminal from './components/terminal/Terminal';
-import FunZone from './components/funzone/FunZone';
-import ScrollProgress from './components/scrollProgress/ScrollProgress';
-import KonamiCode from './components/easterEgg/KonamiCode';
-import ShortcutsHelp from './components/shortcuts/ShortcutsHelp';
-
-import LiquidEther from './components/Background/LiquidEther'; // <-- adjust path if needed
+import Scene3D from './components/Background/Scene3D/Scene3D';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState('site');
-
-  useEffect(() => {
-    console.log('%cHey there 👋', 'font-size: 20px; font-weight: bold; color: #a97c33;');
-    console.log('%cCurious developer, huh? I like that.', 'font-size: 13px; color: #888;');
-    console.log("%cTry pressing Ctrl/Cmd+K, the backtick key (`), or '?' on this site.", 'font-size: 13px; color: #888;');
-    console.log('%cLet\'s talk: asimsiddiqui8181@gmail.com', 'font-size: 13px; color: #a97c33;');
-  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1200);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    if (loading || page !== 'site') return;
+    if (loading) return;
 
     const sections = Array.from(document.querySelectorAll('.section'));
+    if (!sections.length) return;
 
-    const revealSections = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < triggerBottom) {
-          section.classList.add('scroll-animate--visible');
-        }
-      });
-    };
+    // Prefer IntersectionObserver — cheaper than a scroll listener.
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('scroll-animate--visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      sections.forEach((section) => observer.observe(section));
+      return () => observer.disconnect();
+    }
 
-    revealSections();
-    window.addEventListener('scroll', revealSections, { passive: true });
-
-    return () => window.removeEventListener('scroll', revealSections);
-  }, [loading, page]);
+    // Fallback for very old browsers.
+    sections.forEach((s) => s.classList.add('scroll-animate--visible'));
+    return undefined;
+  }, [loading]);
 
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <CustomCursor />
+      <Scene3D />
       <ScrollProgress />
-      <KonamiCode />
-      <ShortcutsHelp />
       {loading ? (
         <Preloader />
       ) : (
-        <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
-          
-          {/* ---------- LiquidEther background (fixed behind content) ---------- */}
-          <div
-            style={{
-              position: 'fixed',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: -1,            // keep behind everything
-              pointerEvents: 'none', // prevents blocking UI interactions (remove if you want ether to receive mouse)
-              overflow: 'hidden',
-            }}
-          >
-            {/* If LiquidEther internally uses its own canvas that needs pointer events,
-                remove pointerEvents: 'none' above or set this inner wrapper to pointerEvents: 'auto' */}
-            <div style={{ width: '100%', height: '100%' }}>
-              <LiquidEther
-                colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
-                mouseForce={20}
-                cursorSize={100}
-                isViscous={false}
-                viscous={30}
-                iterationsViscous={32}
-                iterationsPoisson={32}
-                resolution={0.5}
-                isBounce={false}
-                autoDemo={true}
-                autoSpeed={0.5}
-                autoIntensity={2.2}
-                takeoverDuration={0.25}
-                autoResumeDelay={3000}
-                autoRampDuration={0.6}
-              />
-            </div>
-          </div>
-
-          {/* ---------- Foreground content ---------- */}
-          <Header onNavigateFun={() => setPage('fun')} />
-          {page === 'fun' ? (
-            <FunZone onBack={() => setPage('site')} />
-          ) : (
-            <main className="main" id="main-content">
-              <Home />
-              <About />
-              <GithubStats />
-              <Skills />
-              <Services />
-              <Qualification />
-              <Work />
-              <Contact />
-            </main>
-          )}
+        <div className="app-shell">
+          <Header />
+          <main className="main" id="main-content">
+            <Home />
+            <About />
+            <GithubStats />
+            <Skills />
+            <Services />
+            <Qualification />
+            <Work />
+            <Contact />
+          </main>
           <ScrollUp />
           <CommandPalette />
           <Terminal />

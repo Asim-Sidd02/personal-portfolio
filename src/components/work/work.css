@@ -48,7 +48,8 @@
     justify-content: space-between;
 }
 
-.work__card:hover{
+/* Hover lift handled by the 3D tilt below for tilt cards */
+.work__card:not(.work__card--tilt):hover{
     transform: translateY(-8px);
     border-color: var(--card-border-hover);
     box-shadow: 0 30px 60px rgba(0,0,0,0.22);
@@ -394,3 +395,75 @@
     }
 
   }
+
+/*=============== INTERACTIVE 3D TILT PROJECT CARDS ===============*/
+.work__card-wrapper {
+    /* Perspective on the wrapper so the child card tilts in 3D. */
+    perspective: 900px;
+}
+
+.work__card--tilt {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.work__card--tilt:hover {
+    border-color: var(--card-border-hover);
+    box-shadow: 0 30px 70px rgba(37, 99, 235, 0.18),
+                0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Content sits slightly forward for a layered, premium depth cue. */
+.work__card-inner {
+    transform: translateZ(28px);
+    transform-style: preserve-3d;
+}
+
+/* Spotlight that follows the cursor across the card. */
+.work__card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        260px circle at var(--mx) var(--my),
+        rgba(37, 99, 235, 0.22),
+        rgba(37, 99, 235, 0) 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.work__card--tilt:hover .work__card-glow {
+    opacity: 1;
+}
+
+/* Keep the interactive content above the glow layer. */
+.work__card--tilt .work__card-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    .work__card--tilt {
+        transform: none !important;
+        transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .work__card-inner { transform: none; }
+}
+
+/* On touch devices tilt is meaningless — keep it flat. */
+@media (hover: none) {
+    .work__card--tilt { transform: none !important; }
+    .work__card-glow { display: none; }
+}

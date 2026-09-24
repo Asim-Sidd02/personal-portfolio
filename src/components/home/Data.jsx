@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import TypingRoles from './TypingRoles'
 
 const containerVariants = {
     hidden: {},
@@ -34,7 +35,7 @@ const Data = () => {
             Currently building at Adab Digital
         </motion.span>
 
-        <motion.h1 className="home__title" variants={itemVariants}>Asim Sidd
+        <motion.h1 className="home__title" variants={itemVariants}><span className="home__name-gradient">Asim Sidd</span>
         <svg
                   width="36"
                   height="36"
@@ -87,7 +88,7 @@ const Data = () => {
         
         </motion.h1>
 
-        <motion.h3 className="home__subtitle" variants={itemVariants}>Software Engineer</motion.h3>
+        <motion.h3 className="home__subtitle" variants={itemVariants}><TypingRoles /></motion.h3>
         <motion.p className="home__description" variants={itemVariants}>I'm a Software Engineer based in Hyderabad, working across Shopify storefronts, Laravel/Vue.js web apps, Flutter mobile apps and Node.js backends. I enjoy owning problems end-to-end, from pixel-perfect interfaces to the APIs behind them.
         </motion.p>
         <motion.a

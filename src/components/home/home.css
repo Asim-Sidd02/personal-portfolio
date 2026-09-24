@@ -100,11 +100,12 @@
 
 .home__subtitle{
     position: relative;
-    font-family: var(--heading-font);
-    font-style: italic;
+    font-family: var(--body-font);
+    font-style: normal;
     font-size: var(--h2-font-size);
     padding-left: 5.4rem;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semi-bold);
+    min-height: 1.6em;
     color: var(--text-color);
 }
 
@@ -265,3 +266,46 @@
    }
   }
   
+
+/*=============== HERO: GRADIENT NAME + TYPING ROLES ===============*/
+.home__name-gradient {
+    background: linear-gradient(
+        100deg,
+        var(--title-color) 0%,
+        var(--accent-color) 45%,
+        #60a5fa 60%,
+        var(--title-color) 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: home-name-shine 6s linear infinite;
+}
+
+@keyframes home-name-shine {
+    to { background-position: 220% center; }
+}
+
+.home__typing-text {
+    color: var(--accent-color);
+}
+
+.home__typing-caret {
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--accent-color);
+    font-weight: 400;
+    animation: home-caret-blink 1s steps(1) infinite;
+}
+
+@keyframes home-caret-blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home__name-gradient { animation: none; }
+    .home__typing-caret { animation: none; opacity: 0.6; }
+}

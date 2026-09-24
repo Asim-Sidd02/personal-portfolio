@@ -1,0 +1,35 @@
+.scene3d-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* sits behind all content */
+  overflow: hidden;
+  pointer-events: none; /* never blocks clicks/scroll on the site */
+
+  /* Whisper-quiet so it reads as a refined backdrop, never a feature. */
+  opacity: 0.5;
+
+  /* Gentle vignette fade so it dissolves into the page background. */
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0) 78%
+  );
+  mask-image: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0) 78%
+  );
+}
+
+.scene3d-wrapper canvas {
+  display: block;
+}
+
+/* Hide the 3D layer entirely when printing / saving as PDF. */
+@media print {
+  .scene3d-wrapper {
+    display: none !important;
+  }
+}
