@@ -70,9 +70,9 @@ const Contact = React.forwardRef((props, ref) => {
       <div className="contact__container container grid">
         <div className="contact__info">
           <p className="contact__lede">
-            Interested in connecting, discussing engineering roles, or just
-            want to say hello? I read every message personally and typically
-            reply within a day.
+            Have a project in mind or an engineering role to discuss?{' '}
+            <span className="contact__lede-accent">Let's build something great together.</span>{' '}
+            I read every message personally and usually reply within a day.
           </p>
 
           <div className="contact__detail">

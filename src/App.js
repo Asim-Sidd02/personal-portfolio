@@ -17,6 +17,7 @@ import ScrollProgress from './components/scrollProgress/ScrollProgress';
 import CommandPalette from './components/commandPalette/CommandPalette';
 import Terminal from './components/terminal/Terminal';
 import Scene3D from './components/Background/Scene3D/Scene3D';
+import './polish.css';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
